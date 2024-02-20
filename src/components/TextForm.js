@@ -1,4 +1,5 @@
-import React from 'react'
+import * as React from 'react';
+// import {React} from 'react'
 import { useState } from 'react'
 
 
@@ -66,15 +67,15 @@ export default function TextForm(props) {
                 <h1 className={`mx-4 text-${props.mode === 'light' ? 'dark' : 'light'}`}>{props.heading}</h1>
                 <div className="mb-3">
                     <label htmlFor="myBox" className="form-label mx-4"></label>
-                    <textarea className="form-control mx-4 " onChange={handleOnchange} style={{backgroundColor:props.mode === 'light' ? 'white' : '#121212', color:props.mode === 'light' ? 'black' : 'white'}} rows="8" id="myBox" value={text}> </textarea>
+                    <textarea className="form-control  " onChange={handleOnchange} style={{backgroundColor:props.mode === 'light' ? 'white' : '#121212', color:props.mode === 'light' ? 'black' : 'white'}} rows="8" id="myBox" value={text}> </textarea>
                 </div>
-                <button className="btn btn-primary mx-4" onClick={handleUpClick} >Convert to Uppercase</button>
-                <button className="btn btn-primary " onClick={handleButtonClick}>Extract all the email</button>
-                <button className="btn btn-primary mx-2" onClick={handleCopy}>CopyText</button>
+                <button className="btn btn-primary my-2   " onClick={handleUpClick} >Convert to Uppercase</button>
+                <button className="btn btn-primary ms-2 me-md-2" onClick={handleButtonClick}>Extract all the email</button>
+                <button className="btn btn-primary " onClick={handleCopy}>CopyText</button>
             </div>
             <div className="container mx-3 my-2">
                 <h1 className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>Your text summary</h1>
-                <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`} color={`${props.mode === 'light' ? 'dark' : 'light'}`}>{text.trim().split(/\s+/).length} words and {numC} characters</p>
+                <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`} color={`${props.mode === 'light' ? 'dark' : 'light'}`}>{text.trim().split(/\s+/).filter((element)=>{return element.length !== 0}).length} words and {numC} characters</p>
                 <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`} color={`${props.mode === 'light' ? 'dark' : 'light'}`}>{0.008 * text.split(" ").length} minitues to read</p>
                 <div>
                     <h2 className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>Extracted Emails:</h2>
