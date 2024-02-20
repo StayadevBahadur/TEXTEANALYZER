@@ -1,10 +1,11 @@
-
+// import {React} from 'react';
+import * as React from 'react';
 import { useState } from 'react';
 import './App.css';
 import About from './components/About';
 import Navbar from './components/Navbar';
 import Alert from './components/Alert';
-import TextForm from './components/TextForm';
+ import TextForm from './components/TextForm';
 import {
   BrowserRouter as Router,
   Route,
@@ -38,18 +39,18 @@ function App() {
   }
   return (
     <>
-      {/* <Router> */}
-        <Navbar title="TextAnalyzer N" AboutText="AboutTextAnalyzer" mode={mode} toggleMode={toggleMode} />
+      <Router>
+        <Navbar title="TextAnalyzer" AboutText="AboutTextAnalyzer" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container">
-     
-          {/* <Routes>
+        {/* <TextForm heading="Enter your text to analyze" mode={mode} showAlert={showAlert} /> */}
+          <Routes>
             <Route path="/about" element={<About />} />
             <Route exact path="/" element={<TextForm heading="Enter your text to analyze" mode={mode} showAlert={showAlert} />}/>
-          </Routes> */}
+          </Routes>
         </div>
 
-      {/* </Router> */}
+      </Router>
     </>
   );
 }

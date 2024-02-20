@@ -1,4 +1,6 @@
-import React from 'react'
+// import React from 'react'
+import * as React from 'react';
+
 
 export default function Alert(props) {
   const capitlaize =(word)=>{
