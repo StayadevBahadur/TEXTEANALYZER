@@ -69,7 +69,7 @@ export default function TextForm(props) {
                     <label htmlFor="myBox" className="form-label mx-4"></label>
                     <textarea className="form-control  " onChange={handleOnchange} style={{backgroundColor:props.mode === 'light' ? 'white' : '#121212', color:props.mode === 'light' ? 'black' : 'white'}} rows="8" id="myBox" value={text}> </textarea>
                 </div>
-                <button className="btn btn-primary my-2   " onClick={handleUpClick} >Convert to Uppercase</button>
+                <button className="btn btn-primary my-2 mx-2  " onClick={handleUpClick} >Convert to Uppercase</button>
                 <button className="btn btn-primary ms-2 me-md-2" onClick={handleButtonClick}>Extract all the email</button>
                 <button className="btn btn-primary mx-2" onClick={handleCopy}>CopyText</button>
             </div>
