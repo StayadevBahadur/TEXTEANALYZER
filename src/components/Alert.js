@@ -7,13 +7,15 @@ export default function Alert(props) {
    let cpaword = word.charAt(0).toUpperCase()+ word.slice(1);
   // let lowerWord = word.toLowerCase();
    return cpaword;
+   // CLS is for cummilative layout shift
   }
   return (
-    
-  props.alert &&  <div className={`alert alert-${props.alert.type}`} role="alert">
-       <strong>{capitlaize(props.alert.type)}</strong> : {props.alert.message}
-    </div>
 
+    <div style = {{height:'50px'}}>
+  {props.alert &&  <div className={`alert alert-${props.alert.type}`} role="alert">
+       <strong>{capitlaize(props.alert.type)}</strong> : {props.alert.message}
+    </div>}
+    </div>
 
     
   )

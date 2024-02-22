@@ -56,9 +56,14 @@ export default function TextForm(props) {
 
     const handleCopy = () => {
         var text = document.getElementById("myBox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
-
+        text.select();   
+            navigator.clipboard.writeText(text.value);      
+          // Deselect the text
+          window.getSelection().removeAllRanges();
+        
+    }
+    const handleClear =()=>{
+        SetText('')
     }
 
     return (
@@ -72,11 +77,14 @@ export default function TextForm(props) {
                 <button className="btn btn-primary my-2 mx-2  " onClick={handleUpClick} >Convert to Uppercase</button>
                 <button className="btn btn-primary ms-2 me-md-2" onClick={handleButtonClick}>Extract all the email</button>
                 <button className="btn btn-primary mx-2" onClick={handleCopy}>CopyText</button>
+                <button className="btn btn-primary mx-2 mt-2" onClick={handleClear}>ClearText</button>
             </div>
             <div className="container mx-3 my-2">
                 <h1 className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>Your text summary</h1>
                 <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`} color={`${props.mode === 'light' ? 'dark' : 'light'}`}>{text.trim().split(/\s+/).filter((element)=>{return element.length !== 0}).length} words and {numC} characters</p>
-                <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`} color={`${props.mode === 'light' ? 'dark' : 'light'}`}>{0.008 * text.split(" ").length} minitues to read</p>
+                <p className={`text-${props.mode === 'light' ? 'dark' : 'light'}`} color={`${props.mode === 'light' ? 'dark' : 'light'}`}>{0.008 * text.split(" ").filter((element)=>{
+                return element.length !==0
+                }).length} minitues to read</p>
                 <div>
                     <h2 className={`text-${props.mode === 'light' ? 'dark' : 'light'}`}>Extracted Emails:</h2>
                     <ul>
